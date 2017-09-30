@@ -15,21 +15,6 @@ import java.util.regex.Pattern;
  * @version : 1.0
  */
 public class StyleChecker {
-
-    private boolean methodIndented;
-    private boolean decisionsIndented;
-    private boolean loopsIndented;
-    private boolean variablesIndented;
-    private boolean spacesAroundBinary;
-    private boolean methodBracesAlignedLeft;
-    private boolean blanklineBetweenMethods;
-    private boolean methodsCapitalized;
-    private boolean constantsAllCaps;
-    private boolean classCapitalized;
-    private boolean magicNumber;
-    private boolean noBlanklinesBetweenDecisions;
-    private boolean decisionsCurlys;
-    private boolean loopsCurlys;
     BufferedReader programReader;
     FileReader fr;
     String filename;
@@ -56,9 +41,8 @@ public class StyleChecker {
             while ((progLine = programReader.readLine()) != null) {
                 lineCount += 1;
                 if(methodRegexMatcher(progLine) == true) {
-                    System.out.println("Spacecount: "+spaceCounter(progLine));
                     if(spaceCounter(progLine) != VALID_INDENTATION){
-                        System.out.print(errorTrace("Incorrect indentation of method.\n","Line "+lineCount+": "));
+                        errorTrace("Incorrect indentation of method.\n","Line "+lineCount+": ");
                     }
                 }
             }
@@ -106,16 +90,12 @@ public class StyleChecker {
         Pattern pattern = Pattern.compile(regex);
         Matcher patternMatcher = pattern.matcher(inputString);
         if(patternMatcher.find()){
-            System.out.println("\nFOUND A METHOD");
-            System.out.println(inputString);
             return true;
         }
         regex = "\\s*static\\s*void\\s*main\\s*\\(\\s*String\\s*\\[\\]\\s*[^\\)]*\\)";
         pattern = Pattern.compile(regex);
         patternMatcher = pattern.matcher(inputString);
         if(patternMatcher.find()){
-            System.out.println("FOUND A MAIN METHOD");
-            System.out.println(inputString);
             return true;
         }
         return false;
@@ -186,10 +166,8 @@ public class StyleChecker {
                    className = progLine.substring(decEndPOS, progLine.length());
                    className = extractClassName(className);
                    capCheck = className.charAt(0);
-                   System.out.println("Class name: "+className);
                    if(!capCheck.toString().equals(capCheck.toString().toUpperCase()) ){
-                       System.out.print(errorTrace("Classname not capitalized.\n","Line "+lineCount+": "));
-                       System.out.println(className);
+                       errorTrace("Classname not capitalized.\n","Line "+lineCount+": ");
                    }
                 }
             }
@@ -282,7 +260,6 @@ public class StyleChecker {
      * @return: False if no style errors of this type were found.
      */
     public boolean loopsHaveCurlys(){
-
         return false;
     }
 
@@ -292,7 +269,7 @@ public class StyleChecker {
     public void outputFileReport(){
         for (Iterator<String> itr = errorRecord.iterator(); itr.hasNext();) {
             String errorMsg = itr.next();
-            System.out.println(errorMsg);
+            System.out.print(errorMsg);
         }
     }
 
@@ -300,9 +277,9 @@ public class StyleChecker {
      * Concatenates a message with the line number and type of error.
      * @return: Message that contains the lines number and the type of error.
      */
-    public String errorTrace(String styleErrorMessage, String lineNumber){
-        errorRecord.add(styleErrorMessage+" "+lineNumber);
-        return lineNumber+styleErrorMessage;
+    public void errorTrace(String styleErrorMessage, String lineNumber){
+        String errorMsg = lineNumber+styleErrorMessage;
+        errorRecord.add(errorMsg);
     }
 
 
@@ -311,5 +288,6 @@ public class StyleChecker {
         StyleChecker styleChecker = new StyleChecker("C:\\Users\\aloom\\IdeaProjects\\StyleChecker\\src\\aaron_indent.txt");
         styleChecker.methodsIndented();
         styleChecker.classNameCapitalized();
+        styleChecker.outputFileReport();
     }
 }

@@ -1,0 +1,25 @@
+/**
+     * A method that looks to see if the program contains a magic number.
+     * @return: False if no style errors of this type were found.
+     */
+    public boolean noMagicNumbers(){
+
+        return false;
+    }
+
+    /**
+     * A method that looks to see if there are blank lines between decisions.
+     * @return: False if no style errors of this type were found.
+     */
+    public boolean blankLinesBetweenDecisions(){
+
+        return false;
+    }
+
+    /**
+     * A method that looks to see if there are blank lines between loops
+     * @return: False if no style errors of this type were found.
+     */
+    public void isBlanklineBetweenLoops(){
+
+    }

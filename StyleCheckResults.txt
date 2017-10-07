@@ -1,0 +1,6 @@
+AUTHOR: AARON LOOMIS
+STYLE CHECKER Vers 1.0
+STYLE REPORT
+Report generated on: 10/06/2017 22:50:29
+===========================================================================
+Line 7: Class name not capitalized.

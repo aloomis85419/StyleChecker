@@ -1,7 +1,7 @@
 /**
  * Created by aloom on 10/6/2017.
  */
-public class ClassNameCapitalizedCheck extends StyleChecker {
+public class ClassNamesCapitalizedChecker extends StyleChecker {
 
     /**
      * Looks to see if the first letter of a class name is capitalized.
@@ -18,7 +18,7 @@ public class ClassNameCapitalizedCheck extends StyleChecker {
             className = extractClassName(className);
             capCheck = className.charAt(0);
             if(!capCheck.toString().equals(capCheck.toString().toUpperCase()) ){
-                errorTrace("Line "+lineCount+": ","Class name not capitalized.\n");
+                errorTrace("Line "+lineCount+": ","Class name is not capitalized.\n");
             }
         }
     }

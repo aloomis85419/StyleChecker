@@ -17,7 +17,8 @@ public class RunChecks {
         LoopsHaveCurlysChecker loopsHaveCurlysChecker = new LoopsHaveCurlysChecker();
         DecisionsHaveCurlysChecker decisionsHaveCurlysChecker = new DecisionsHaveCurlysChecker();
         ConstantAllCapsChecker constantAllCapsChecker = new ConstantAllCapsChecker();
-        ClassNameCapitalizedCheck classNameCapitalizedCheck = new ClassNameCapitalizedCheck();
+        ClassNamesCapitalizedChecker classNamesCapitalizedChecker = new ClassNamesCapitalizedChecker();
+        SpacesAroundBinaryMathOperatorsChecker spacesAroundBinaryMathOperatorsChecker = new SpacesAroundBinaryMathOperatorsChecker();
         int lineCount = 0;
         String progLineCurrent;
         String progLinePrevious;
@@ -35,7 +36,8 @@ public class RunChecks {
                 loopsHaveCurlysChecker.determineLoopErrorType(progLinePrevious, progLineCurrent, lineCount);
                 decisionsHaveCurlysChecker.determineDecisionErrorMessage(progLinePrevious, progLineCurrent, lineCount);
                 constantAllCapsChecker.constantsAllCaps(progLinePrevious, lineCount);
-                classNameCapitalizedCheck.classNameCapitalized(progLinePrevious, lineCount);
+                classNamesCapitalizedChecker.classNameCapitalized(progLinePrevious, lineCount);
+                spacesAroundBinaryMathOperatorsChecker.spacedBinaryOperators(progLinePrevious,progLineCurrent,lineCount);
             }
             styleChecker.outputFileReport(outputFileName);
         } catch (FileNotFoundException f) {

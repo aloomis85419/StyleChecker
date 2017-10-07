@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9be02aa-9e19-4d51-8eee-364d55bc05e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ConstantAllCapsChecker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DecisionsHaveCurlysChecker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LoopsHaveCurlysChecker.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RunChecks.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsCheck.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ClassNamesCapitalizedChecker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsChecker.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/StyleChecker/ClassNameCapitalizedCheck.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ClassNameCapitalizedCheck.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsCheck.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/StyleChecker/RunChecks.class" afterPath="$PROJECT_DIR$/out/production/StyleChecker/RunChecks.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Madeupstyleerrorcheckingmethods.txt" afterPath="$PROJECT_DIR$/src/Madeupstyleerrorcheckingmethods.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StyleChecker.java" afterPath="$PROJECT_DIR$/src/StyleChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aaron_indent.txt" afterPath="$PROJECT_DIR$/src/aaron_indent.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StyleCheckResults.txt" afterPath="$PROJECT_DIR$/StyleCheckResults.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RunChecks.java" afterPath="$PROJECT_DIR$/src/RunChecks.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +33,8 @@
       <file leaf-file-name="RunChecks.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RunChecks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
-              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            <state relative-caret-position="1160">
+              <caret line="39" column="119" lean-forward="false" selection-start-line="39" selection-start-column="119" selection-end-line="39" selection-end-column="119" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,26 +66,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StyleChecker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StyleChecker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="6" column="5" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-                <element signature="e#631#632#0" expanded="true" />
-                <element signature="e#4301#4302#0" expanded="true" />
-                <element signature="e#4337#4338#0" expanded="true" />
-                <element signature="e#4386#4387#0" expanded="true" />
-                <element signature="e#4422#4423#0" expanded="true" />
-                <element signature="e#4466#4467#0" expanded="true" />
-                <element signature="e#4498#4499#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MethodIndentationChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MethodIndentationChecker.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,8 +79,8 @@
       <file leaf-file-name="StyleCheckResults.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StyleCheckResults.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="280">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,21 +96,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClassNameCapitalizedCheck.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClassNameCapitalizedCheck.java">
+      <file leaf-file-name="MethodBraceAlignedLeftChecker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="20" column="81" lean-forward="true" selection-start-line="20" selection-start-column="81" selection-end-line="20" selection-end-column="81" />
+            <state relative-caret-position="120">
+              <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpacesAroundBinaryMathOperatorsCheck.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsCheck.java">
+      <file leaf-file-name="ClassNamesCapitalizedChecker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ClassNamesCapitalizedChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+            <state relative-caret-position="800">
+              <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpacesAroundBinaryMathOperatorsChecker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1107">
+              <caret line="45" column="97" lean-forward="false" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -198,9 +189,11 @@
         <option value="$PROJECT_DIR$/src/LoopsHaveCurlysChecker.java" />
         <option value="$PROJECT_DIR$/src/DecisionsHaveCurlysChecker.java" />
         <option value="$PROJECT_DIR$/StyleCheckResults.txt" />
-        <option value="$PROJECT_DIR$/src/RunChecks.java" />
         <option value="$PROJECT_DIR$/src/aaron_indent.txt" />
         <option value="$PROJECT_DIR$/src/ClassNameCapitalizedCheck.java" />
+        <option value="$PROJECT_DIR$/src/RunChecks.java" />
+        <option value="$PROJECT_DIR$/src/ClassNamesCapitalizedChecker.java" />
+        <option value="$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsChecker.java" />
       </list>
     </option>
   </component>
@@ -770,12 +763,12 @@
       <workItem from="1507175185735" duration="43000" />
       <workItem from="1507219572173" duration="3424000" />
       <workItem from="1507229612267" duration="3589000" />
-      <workItem from="1507238066391" duration="38833000" />
+      <workItem from="1507238066391" duration="41893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114618000" />
+    <option name="totallyTimeSpent" value="117678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2192" extended-state="6" />
@@ -821,7 +814,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsChecker.java</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -830,30 +831,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Madeupstyleerrorcheckingmethods.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StyleCheckResults.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aaron_indent.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/StyleChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5080">
@@ -1151,15 +1128,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConstantAllCapsChecker.java">
+    <entry file="file://$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsCheck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClassNameCapitalizedCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StyleChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7362#7363#0" expanded="true" />
-            <element signature="e#7407#7408#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#4301#4302#0" expanded="true" />
+            <element signature="e#4337#4338#0" expanded="true" />
+            <element signature="e#4386#4387#0" expanded="true" />
+            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4466#4467#0" expanded="true" />
+            <element signature="e#4498#4499#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RunChecks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1160">
+          <caret line="39" column="119" lean-forward="false" selection-start-line="39" selection-start-column="119" selection-end-line="39" selection-end-column="119" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StyleCheckResults.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1107">
+          <caret line="45" column="97" lean-forward="false" selection-start-line="45" selection-start-column="97" selection-end-line="45" selection-end-column="97" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1189,31 +1214,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RunChecks.java">
+    <entry file="file://$PROJECT_DIR$/src/ConstantAllCapsChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        <state relative-caret-position="280">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7362#7363#0" expanded="true" />
+            <element signature="e#7407#7408#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StyleChecker.java">
+    <entry file="file://$PROJECT_DIR$/src/ClassNamesCapitalizedChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#4301#4302#0" expanded="true" />
-            <element signature="e#4337#4338#0" expanded="true" />
-            <element signature="e#4386#4387#0" expanded="true" />
-            <element signature="e#4422#4423#0" expanded="true" />
-            <element signature="e#4466#4467#0" expanded="true" />
-            <element signature="e#4498#4499#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="800">
+          <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,26 +1242,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StyleCheckResults.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClassNameCapitalizedCheck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="20" column="81" lean-forward="true" selection-start-line="20" selection-start-column="81" selection-end-line="20" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsCheck.java">
+    <entry file="file://$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
           <folding />
         </state>
       </provider>

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
  * Created by aloom on 10/6/2017.
  */
 public class MethodIndentationChecker extends StyleChecker {
-
+//WORK IN PROGRESS.
     /*
         Checks whether a method is indented to 4 spaces or 1 tab.
      */

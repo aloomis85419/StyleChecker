@@ -19,6 +19,7 @@ public class RunChecks {
         ConstantAllCapsChecker constantAllCapsChecker = new ConstantAllCapsChecker();
         ClassNamesCapitalizedChecker classNamesCapitalizedChecker = new ClassNamesCapitalizedChecker();
         SpacesAroundBinaryMathOperatorsChecker spacesAroundBinaryMathOperatorsChecker = new SpacesAroundBinaryMathOperatorsChecker();
+        MethodBraceAlignedLeftChecker methodBraceAlignedLeftChecker = new MethodBraceAlignedLeftChecker();
         int lineCount = 0;
         String progLineCurrent;
         String progLinePrevious;
@@ -38,6 +39,7 @@ public class RunChecks {
                 constantAllCapsChecker.constantsAllCaps(progLinePrevious, lineCount);
                 classNamesCapitalizedChecker.classNameCapitalized(progLinePrevious, lineCount);
                 spacesAroundBinaryMathOperatorsChecker.spacedBinaryOperators(progLinePrevious,progLineCurrent,lineCount);
+                methodBraceAlignedLeftChecker.methodBracesAlignedLeft(progLinePrevious,progLineCurrent,lineCount);
             }
             styleChecker.outputFileReport(outputFileName);
         } catch (FileNotFoundException f) {

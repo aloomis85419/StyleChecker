@@ -14,7 +14,7 @@ public class test1
     }
 
     public int CircleOfNumbers(int n, int firstNumber)
-    {
+     {
         private final int NUMBER_OF_CIRCLES = 5;
         private final int NUMBER_OF_CIRCLES = 5;
         int oppositeNum;

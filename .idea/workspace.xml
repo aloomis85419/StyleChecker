@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StyleCheckResults.txt" afterPath="$PROJECT_DIR$/StyleCheckResults.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java" afterPath="$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MethodIndentationChecker.java" afterPath="$PROJECT_DIR$/src/MethodIndentationChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RunChecks.java" afterPath="$PROJECT_DIR$/src/RunChecks.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aaron_indent.txt" afterPath="$PROJECT_DIR$/src/aaron_indent.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,21 +60,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MethodIndentationChecker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MethodIndentationChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MethodIndentationChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="-960">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StyleCheckResults.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StyleCheckResults.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StyleCheckResults.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -85,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/aaron_indent.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="640">
-              <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -94,8 +93,8 @@
       <file leaf-file-name="MethodBraceAlignedLeftChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="21" column="98" lean-forward="false" selection-start-line="21" selection-start-column="98" selection-end-line="21" selection-end-column="98" />
+            <state relative-caret-position="1067">
+              <caret line="51" column="60" lean-forward="false" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -189,9 +188,9 @@
         <option value="$PROJECT_DIR$/src/ClassNamesCapitalizedChecker.java" />
         <option value="$PROJECT_DIR$/src/SpacesAroundBinaryMathOperatorsChecker.java" />
         <option value="$PROJECT_DIR$/src/RunChecks.java" />
+        <option value="$PROJECT_DIR$/src/MethodIndentationChecker.java" />
         <option value="$PROJECT_DIR$/src/aaron_indent.txt" />
         <option value="$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java" />
-        <option value="$PROJECT_DIR$/src/MethodIndentationChecker.java" />
       </list>
     </option>
   </component>
@@ -761,12 +760,12 @@
       <workItem from="1507175185735" duration="43000" />
       <workItem from="1507219572173" duration="3424000" />
       <workItem from="1507229612267" duration="3589000" />
-      <workItem from="1507238066391" duration="47520000" />
+      <workItem from="1507238066391" duration="48412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123305000" />
+    <option name="totallyTimeSpent" value="124197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2192" extended-state="6" />
@@ -1170,14 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DecisionsHaveCurlysChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConstantAllCapsChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -1206,6 +1197,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DecisionsHaveCurlysChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/RunChecks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1068">
@@ -1216,10 +1215,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MethodIndentationChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-960">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MethodBraceAlignedLeftChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="21" column="98" lean-forward="false" selection-start-line="21" selection-start-column="98" selection-end-line="21" selection-end-column="98" />
+        <state relative-caret-position="1067">
+          <caret line="51" column="60" lean-forward="false" selection-start-line="51" selection-start-column="60" selection-end-line="51" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1229,7 +1236,7 @@
     <entry file="file://$PROJECT_DIR$/src/aaron_indent.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1237,15 +1244,7 @@
     <entry file="file://$PROJECT_DIR$/StyleCheckResults.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MethodIndentationChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
           <folding />
         </state>
       </provider>

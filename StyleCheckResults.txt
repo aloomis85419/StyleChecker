@@ -1,7 +1,6 @@
 AUTHOR: AARON LOOMIS
 STYLE CHECKER Vers 1.0
 STYLE REPORT
-Report generated on: 10/07/2017 18:33:13
+Report generated on: 10/08/2017 16:13:40
 ===========================================================================
-Line 14: Incorrect closing-method brace alignment.
-Line 34: Incorrect closing-method brace alignment.
+Line 24: Closing brace alignment for if statement is incorrect.

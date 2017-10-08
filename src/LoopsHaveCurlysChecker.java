@@ -11,23 +11,22 @@ public class LoopsHaveCurlysChecker extends StyleChecker{
 
     /**
      * Prints various messages relating to which kind of loop structure has the no curly bracket error.
-     * @param progLine: Current line being read.
-     * @param progNextLine: Line in next sequential order to progLine(current line).
+     * @param currentLine: Current line being read.
      */
-    public void determineLoopErrorType(String progLine, String progNextLine,int lineCount) {
-        if(progLine.contains("while(")){
-            if (!progLine.contains("{") && !progNextLine.contains("{")){
-                errorTrace("Line "+lineCount+": ","Missing curly bracket after WHILE statement.\n");
+    public void determineLoopErrorType(String currentLine, int lineIndex,int lineNum) {
+        if(currentLine.contains("while(")){
+            if (!currentLine.contains("{")&& !progLines.get(lineIndex+1).contains("{") ){
+                errorTrace("Line " + (lineNum) + ": ", "Missing curly bracket after WHILE statement.\n");
             }
         }
-        if(progLine.contains("for(")){
-            if (!progLine.contains("{") && !progNextLine.contains("{")){
-                errorTrace("Line "+lineCount+": ","Missing curly bracket after FOR statement.\n");
+        if(currentLine.contains("for(")){
+            if (!currentLine.contains("{")&& !progLines.get(lineIndex+1).contains("{") ){
+                errorTrace("Line " + (lineNum) + ": ", "Missing curly bracket after WHILE statement.\n");
             }
         }
-        if(progLine.contains("do(")){
-            if (!progLine.contains("{") && !progNextLine.contains("{")){
-                errorTrace("Line "+lineCount+": ","Missing curly bracket after DO statement.\n");
+        if(currentLine.contains("do(")){
+            if (!currentLine.contains("{")&& !progLines.get(lineIndex+1).contains("{") ){
+                errorTrace("Line " + (lineNum) + ": ", "Missing curly bracket after WHILE statement.\n");
             }
         }
     }

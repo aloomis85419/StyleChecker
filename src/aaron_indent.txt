@@ -11,12 +11,12 @@ public class Test1
     {
         TestClass1 test1 = new TestClass1();
         test1.CircleOfNumbers(10,1);
-      }
+    }
 
     public int CircleOfNumbers(int n, int firstNumber)
     {
-        private final int NUMBER_OF_CIRCLES = 5;
-        private final int NUMBER_OF_CIRCLES = 5;
+        private final int nUMBER_OF_CIRCLES = 5;
+        private final int nUMBER_OF_CIRCLES = 5;
         int oppositeNum;
         if(firstNumber % n  == 0)
         {
@@ -24,12 +24,12 @@ public class Test1
         }
         while(firstNumber > 6)
         {
-        System.out.println(firstNumber);
+            System.out.println(firstNumber);
         }
         else
         {
 			oppositeNum = firstNumber - (n / 2);
         }
         return oppositeNum;
-   }
+    }
 }

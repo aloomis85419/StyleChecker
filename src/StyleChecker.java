@@ -14,7 +14,6 @@ public class StyleChecker {
     String filename;
     static ArrayList<String> errorRecord = new ArrayList<>();
     static ArrayList<String>progLines = new ArrayList<>();
-    private boolean methodFound = false;//possible deletion.
 
     /*
         Default constructor.
@@ -25,7 +24,7 @@ public class StyleChecker {
 
     /**Creates an instance of the style checker with a given file name to check for style errors.
      */
-    public StyleChecker(String filename, FileReader fileReader, int lineCount){
+    public StyleChecker(String filename, FileReader fileReader){
         this.filename = filename;
         this.fr = fileReader;
         this.programReader = new BufferedReader(fileReader);

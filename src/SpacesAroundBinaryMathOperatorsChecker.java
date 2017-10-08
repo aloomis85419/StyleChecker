@@ -5,10 +5,10 @@ public class SpacesAroundBinaryMathOperatorsChecker extends StyleChecker {
 
     int lineCount;
 
-    public void spacedBinaryOperators(String progLine, String skipLine, int lineCount){
-        this.lineCount = lineCount;
+    public void spacedBinaryOperators(String progLine,int lineIndex, int lineNum){
+        this.lineCount = lineNum;
         if (progLine.contains("/*") || progLine.contains("/**") ||progLine.contains("*/") ||progLine.contains("//")){
-            progLine = skipLine;
+            progLine = progLines.get(lineIndex+1);
         }
         searchForBinaryMathOperators(progLine);
     }

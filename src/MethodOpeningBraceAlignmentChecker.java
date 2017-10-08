@@ -7,38 +7,36 @@ import java.util.regex.Pattern;
 /**
  * Created by aloom on 10/6/2017.
  */
-public class MethodBraceAlignedLeftChecker extends StyleChecker{
-    int nextLineNum;
+public class MethodOpeningBraceAlignmentChecker extends StyleChecker{
 
     /**
      * This method will compare values alignPosition (the position of the first letter of a method) to matchPosition(position of opening curly brace) to see if they are equal.
      * If the values aren't equal, it will store an error message using errorTrace for printing later on in a report.
      * It is also responsible for checking the alignment of the closing brace of a method. The same action as above is performed for the closing brace.
      * @param currentLine: Line of program being analyzed.
-     * @param nextLine: Allows for analysis of the next line (line after current line) which allows for more computational ability.
-     * @param lineCount: Passed in from RunChecks, it counts the line number for error printing.
+     * @param lineNum: Passed in from RunChecks, it counts the line number for error printing.
+     * @param lineIndex: Passed in from RunChecks, it allows for access of progLines;
      */
-    public void methodBracesAlignedLeft(String currentLine, String nextLine, int lineCount){
-        //Worth noting that the methodRegex method could be refactored into a class of its own for use by all of the classes.
+    public void methodBracesAlignedLeft(String currentLine,int lineIndex,int lineNum){
         MethodIndentationChecker methodRegexSearcher = new MethodIndentationChecker();
-        nextLineNum = lineCount+1;
         int alignPosition = 0;
         int openingBracePos = 0;
-        int closingBracePos = 0;
         if (methodRegexSearcher.methodRegexMatcher(currentLine) == true) {
                 if(currentLine.contains("{")){
-                   errorTrace("Line "+lineCount+": ","Incorrect method brace alignment. Opening brace is on the same line as method declaration.\n");
+                   errorTrace("Line "+(lineNum+1)+": ","Incorrect method brace alignment. Opening brace is on the same line as method declaration.\n");
                 }
-                if(nextLine.isEmpty()){
-                    errorTrace("Line "+nextLineNum+": ","Blank line between method declaration and opening brace.\n");
+                if(progLines.get(lineIndex+1).isEmpty()){
+                    errorTrace("Line "+(lineNum+1)+": ","Blank lines after method declaration.\n");
                 }
         }
-        if(nextLine.contains("{") && methodRegexSearcher.methodRegexMatcher(currentLine) == true){
-            openingBracePos = getMatchPosition(nextLine);
-            alignPosition = getAlignPosition(currentLine);
+        if(methodRegexSearcher.methodRegexMatcher(currentLine) == true){
+            if(progLines.get(lineIndex+1).contains("{")) {
+                openingBracePos = getMatchPosition(progLines.get(lineIndex + 1));
+                alignPosition = getAlignPosition(currentLine);
 
-            if (alignPosition != openingBracePos){
-                    errorTrace("Line "+nextLineNum+": ","Incorrect opening-method brace alignment.\n");
+                if (alignPosition != openingBracePos) {
+                    errorTrace("Line " + (lineNum+1) + ": ", "Incorrect opening-method brace alignment.\n");
+                }
             }
         }
     }
@@ -81,7 +79,4 @@ public class MethodBraceAlignedLeftChecker extends StyleChecker{
         }
         return matchPosition;
     }
-
-
-
-    }
+}

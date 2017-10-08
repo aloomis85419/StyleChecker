@@ -1,8 +1,7 @@
 AUTHOR: AARON LOOMIS
 STYLE CHECKER Vers 1.0
 STYLE REPORT
-Report generated on: 10/07/2017 01:36:36
+Report generated on: 10/07/2017 18:33:13
 ===========================================================================
-Line 7: Class name is not capitalized.
-Line 17: Incorrect method brace alignment. Curly braces must be placed under the first letter of a method declaration.
-Curly brace is 1 spaces to far to the left.
+Line 14: Incorrect closing-method brace alignment.
+Line 34: Incorrect closing-method brace alignment.

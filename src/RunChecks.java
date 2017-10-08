@@ -20,6 +20,7 @@ public class RunChecks {
         ClassNamesCapitalizedChecker classNamesCapitalizedChecker = new ClassNamesCapitalizedChecker();
         SpacesAroundBinaryMathOperatorsChecker spacesAroundBinaryMathOperatorsChecker = new SpacesAroundBinaryMathOperatorsChecker();
         MethodBraceAlignedLeftChecker methodBraceAlignedLeftChecker = new MethodBraceAlignedLeftChecker();
+        MethodClosingBraceAlignedLeftChecker methodClosingBraceAlignedLeftChecker = new MethodClosingBraceAlignedLeftChecker();
         int lineCount = 0;
         String progLineCurrent;
         String progLinePrevious;
@@ -40,14 +41,12 @@ public class RunChecks {
                 classNamesCapitalizedChecker.classNameCapitalized(progLinePrevious, lineCount);
                 spacesAroundBinaryMathOperatorsChecker.spacedBinaryOperators(progLinePrevious,progLineCurrent,lineCount);
                 methodBraceAlignedLeftChecker.methodBracesAlignedLeft(progLinePrevious,progLineCurrent,lineCount);
+                methodClosingBraceAlignedLeftChecker.closingBraceAlignmentCheck(progLinePrevious,lineCount);
             }
             styleChecker.outputFileReport(outputFileName);
         } catch (FileNotFoundException f) {
             System.out.println("File not found.");
             f.printStackTrace();
-        } catch (IOException fileReadError) {
-            System.out.println("Error reading file.");
-            fileReadError.printStackTrace();
         }
     }
 }

@@ -193,7 +193,7 @@ public class ConstantAllCapsChecker extends StyleChecker{
     /**
      * Analyzes characters to see if they are letters.
      * @param s: A single character as a string that is to be matched to a regex.
-     * @return: true if the single character mateches the regex.
+     * @return: true if the single character matches the regex.
      */
     public boolean isAlpha(String s) {
         return s.matches("[a-z|A-Z]");
@@ -208,7 +208,7 @@ public class ConstantAllCapsChecker extends StyleChecker{
         String constant = "";
         for (int i = getEndPositionOfTypeIdentifier(progLine); i < progLine.length(); i++){
             Character c = progLine.charAt(i);
-            if(!isAlpha(c.toString()) && c != '_'){
+            if(!isAlpha(c.toString()) || c =='_'){
                 continue;
             }
             else{
@@ -217,4 +217,5 @@ public class ConstantAllCapsChecker extends StyleChecker{
         }
         return constant;
     }
+
 }

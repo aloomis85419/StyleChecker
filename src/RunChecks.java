@@ -16,6 +16,7 @@ public class RunChecks {
         String file1 = "C:\\Users\\aloom\\IdeaProjects\\StyleChecker\\src\\aaron_indent.txt";
         String outputFileName = "StyleCheckResults.txt";
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         StyleChecker styleChecker;
         MethodIndentationChecker methodIndentationChecker = new MethodIndentationChecker();
         LoopsHaveCurlysChecker loopsHaveCurlysChecker = new LoopsHaveCurlysChecker();
@@ -29,26 +30,36 @@ public class RunChecks {
         LoopsOpeningBraceAlignmentChecker loopsOpeningBraceAlignmentChecker = new LoopsOpeningBraceAlignmentChecker();
         LoopsClosingBraceAlignmentChecker loopsClosingBraceAlignmentChecker = new LoopsClosingBraceAlignmentChecker();
         DecisionStatementsClosingBraceAlignmentChecker decisionStatementsClosingBraceAlignmentChecker = new DecisionStatementsClosingBraceAlignmentChecker();
+        BlankLinesBetweenMethodsChecker blankLinesBetweenMethodsChecker = new BlankLinesBetweenMethodsChecker();
+        BlankLineAfterClassDeclarationChecker blankLineAfterClassDeclarationChecker = new BlankLineAfterClassDeclarationChecker();
+        MethodNameLowerCaseChecker methodNameLowerCaseChecker = new MethodNameLowerCaseChecker();
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         try {
             styleChecker = new StyleChecker(file1, new FileReader(file1));
             styleChecker.fillListWithProgLines();
             for(int i = 0; i < styleChecker.progLines.size(); i++){
+
                 progLineCurrent = styleChecker.progLines.get(i);
                 lineIndexer = i;
-                //methodIndentationChecker.methodsIndented(progLineCurrent,lineNum);WORKS WITH NEW VERSION
-                //loopsHaveCurlysChecker.determineLoopErrorType(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //decisionsHaveCurlysChecker.determineDecisionErrorMessage(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //constantAllCapsChecker.constantsAllCaps(progLineCurrent, lineNum);WORKS WITH NEW VERSION
-                //classNamesCapitalizedChecker.classNameCapitalized(progLineCurrent, lineNum);WORKS WITH NEW VERSION
-                //spacesAroundBinaryMathOperatorsChecker.spacedBinaryOperators(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //methodOpeningBraceAlignmentChecker.methodBracesAlignedLeft(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //methodClosingBraceAlignedLeftChecker.closingBraceAlignmentCheck(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //decisionsOpeningBraceAlignmentChecker.checkLoopBraceAlignment(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //loopsOpeningBraceAlignmentChecker.checkLoopBraceAlignment(progLineCurrent,lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //loopsClosingBraceAlignmentChecker.closingBraceAlignmentCheck(progLineCurrent, lineIndexer,lineNum);WORKS WITH NEW VERSION
-                //decisionStatementsClosingBraceAlignmentChecker.closingBraceAlignmentCheck(progLineCurrent, lineIndexer, lineNum);WORKS WITH NEW VERSION
+                /*
+                methodIndentationChecker.methodsIndented(progLineCurrent,lineNum);
+                loopsHaveCurlysChecker.determineLoopErrorType(progLineCurrent,lineIndexer,lineNum);
+                decisionsHaveCurlysChecker.determineDecisionErrorMessage(progLineCurrent,lineIndexer,lineNum);
+                constantAllCapsChecker.constantsAllCaps(progLineCurrent, lineNum);
+                classNamesCapitalizedChecker.classNameCapitalized(progLineCurrent, lineNum);
+                spacesAroundBinaryMathOperatorsChecker.spacedBinaryOperators(progLineCurrent,lineIndexer,lineNum);
+                methodOpeningBraceAlignmentChecker.methodBracesAlignedLeft(progLineCurrent,lineIndexer,lineNum);
+                methodClosingBraceAlignedLeftChecker.closingBraceAlignmentCheck(progLineCurrent,lineIndexer,lineNum);
+                decisionsOpeningBraceAlignmentChecker.checkLoopBraceAlignment(progLineCurrent,lineIndexer,lineNum);
+                loopsOpeningBraceAlignmentChecker.checkLoopBraceAlignment(progLineCurrent,lineIndexer,lineNum);
+                loopsClosingBraceAlignmentChecker.closingBraceAlignmentCheck(progLineCurrent, lineIndexer,lineNum);
+                decisionStatementsClosingBraceAlignmentChecker.closingBraceAlignmentCheck(progLineCurrent, lineIndexer, lineNum);
+                blankLinesBetweenMethodsChecker.checkForBlankLinesBetweenMethods(progLineCurrent,lineIndexer,lineNum);
+                blankLineAfterClassDeclarationChecker.checkForBlankLineAfterClassHeader(progLineCurrent);
+                */
+                methodNameLowerCaseChecker.checkMethodNamesLowercase(progLineCurrent, lineIndexer, lineNum);
                 lineNum +=1;
+
             }
             styleChecker.outputFileReport(outputFileName);
         } catch (FileNotFoundException f) {

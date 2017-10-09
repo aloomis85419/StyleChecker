@@ -54,13 +54,14 @@ public class MethodIndentationChecker extends StyleChecker {
         if(patternMatcher.find()){
             return true;
         }
-        regex = "\\s*static\\s*void\\s*main\\s*\\(\\s*String\\s*\\[\\]\\s*[^\\)]*\\)";
+        regex = "\\s*static\\s*void\\s*main\\s*\\(\\s*String\\s*\\[\\]\\s*[^\\)]*\\)";//does not account for uppercase
+        String main =  "main";
         pattern = Pattern.compile(regex);
         patternMatcher = pattern.matcher(inputString);
         if(patternMatcher.find()){
+            System.out.println("Main Method Found");
             return true;
         }
         return false;
     }
-
 }

@@ -1,5 +1,6 @@
 /**
- * Created by aloom on 10/6/2017.
+ * Checks for capitalization of the first letter in a class name.
+ * @author : Aaron Loomis
  */
 public class ClassNamesCapitalizedChecker extends StyleChecker {
 

@@ -1,60 +1,38 @@
+import java.util.Stack;
+
 /**
- * Created by aloom on 10/7/2017.
+ * Checks the alignment of the closing brace of a method.
+ * @author : Aaron Loomis
  */
 public class MethodClosingBraceAlignedLeftChecker extends StyleChecker{
 
-    MethodIndentationChecker methodIndentationChecker = new MethodIndentationChecker();
+    CodeRegexMatcher codeRegexMatcher = new CodeRegexMatcher();
     MethodOpeningBraceAlignmentChecker methodOpeningBraceAlignmentChecker = new MethodOpeningBraceAlignmentChecker();
-
+    LoopsClosingBraceAlignmentChecker loopsClosingBraceAlignmentChecker = new LoopsClosingBraceAlignmentChecker();
+    int lineNumOfClosingBrace;
     /**
      * Compares the alignment of the closing brace to the alignment of the first letter of method declaration.
      * I retrieves this information from the MethodClosingBraceAlignedLeftChecker class.
-     * Uses MethodIndentationChecker class methodRegexMatcher method to identify method declarations.
+     * Uses CodeRegexMatcher class methodRegexMatcher method to identify method declarations.
      */
-    public void closingBraceAlignmentCheck(String currentLine, int lineIndex,int lineNum){
+    public void closingBraceAlignmentCheck(String currentLine, int lineIndex, int lineNum){
         int alignPos;
         int closingBraceIndexPos;
-        if(methodIndentationChecker.methodRegexMatcher(currentLine)){
-            alignPos = methodOpeningBraceAlignmentChecker.getAlignPosition(currentLine);
-            closingBraceIndexPos = closingBracePositionWithinLine(getClosingBraceIndex(lineIndex));
-            if(alignPos != closingBraceIndexPos){
-                errorTrace("Line "+linePositionOfClosingBrace(lineIndex)+": ","Incorrect closing-method brace alignment.\n");
-            }
-        }
-    }
-
-    /**
-     * This method will find the line on which the closing brace for a method is written.
-     * @return: The line of the method closing brace which is always the last closing brace.
-     */
-    public int getClosingBraceIndex(int lineIndex){
-        int tempLI = lineIndex+1;
-        int count = tempLI;
-        String currentLine = progLines.get(lineIndex);
-        int braceCount = 1;
-        while(braceCount != 0 && tempLI < progLines.size() - 1){
-            count++;
-            if(braceCount==0){
-                break;
-            }
+        int lineNumOfClosingBrace;
+        Stack<String> braceStack = new Stack<>();
+        if(codeRegexMatcher.methodRegexMatcher(currentLine)){
             if(currentLine.contains("{")){
-                braceCount++;
+                return; // handled by opening brace checker.
             }
-            else if (currentLine.contains("}")){
-                braceCount--;
+            alignPos = methodOpeningBraceAlignmentChecker.getAlignPosition(currentLine);
+            lineNumOfClosingBrace = loopsClosingBraceAlignmentChecker.lineNumOfLoopClosingBrace(currentLine, braceStack);
+            closingBraceIndexPos = loopsClosingBraceAlignmentChecker.getIndexPositionOfClosingBrace(lineNumOfClosingBrace);
+            if(alignPos != closingBraceIndexPos){
+                errorTrace("Line "+(lineNumOfClosingBrace +1)+": ","Incorrect closing-method brace alignment.\n");
             }
-            currentLine = progLines.get(tempLI+=1);
         }
-        return count;
     }
-
-    public int linePositionOfClosingBrace(int lineIndexer){
-        return getClosingBraceIndex(lineIndexer);
-    }
-
-    public int closingBracePositionWithinLine(int lineIndexer){
-        String line = progLines.get(lineIndexer-1);
-        int braceIndex = line.indexOf("}");
-        return braceIndex;
+    public int getLineOfClosingBrace(){
+        return lineNumOfClosingBrace;
     }
 }

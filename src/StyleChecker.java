@@ -4,7 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * StyleChecker is a program that checks for a set list of programming style errors.
+ * The StyleChecker Class is a class that provides common functionalities to all of the checkers within the program.
+ * Naturally so, all checkers are subclasses of the StyleChecker class.
  * @author : Aaron C. Loomis
  * @version : 1.0
  */
@@ -36,6 +37,7 @@ public class StyleChecker {
     public void outputFileReport(String outputFile){
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date todaysDate = new Date();
+        //ADD COMMENT EXTRACTION HERE
         try{
             FileWriter fileWriter = new FileWriter(outputFile);
             PrintWriter printWriter = new PrintWriter(fileWriter);
@@ -44,11 +46,11 @@ public class StyleChecker {
             printWriter.print(String.format("\nReport generated on: "+dateFormat.format(todaysDate)));
             printWriter.printf("\n===========================================================================\n");
             if(hasNoErrors()){
-                printWriter.print("No traceable style errors were found.");
+                printWriter.print("No TRACEABLE style errors were found.");
             }
             for (Iterator<String> itr = errorRecord.iterator(); itr.hasNext();) {
                 String errorMsg = itr.next();
-                printWriter.printf(errorMsg);
+                printWriter.printf(errorMsg+"\n");
             }
             printWriter.close();
         }catch (IOException e){

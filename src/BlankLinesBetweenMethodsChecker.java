@@ -1,19 +1,27 @@
+import java.util.Stack;
+
 /**
- * Created by aloom on 10/8/2017.
+ * Checks for blanklines between methods.
+ * @author : Aaron Loomis
  */
 public class BlankLinesBetweenMethodsChecker extends StyleChecker {
 
-    MethodClosingBraceAlignedLeftChecker methodClosingBraceAlignedLeftChecker = new MethodClosingBraceAlignedLeftChecker();//Used for getting the closing brace of a method
-    MethodIndentationChecker methodIndentationChecker = new MethodIndentationChecker(); //Regex matcher method cuts down on written code. Consider making the regex matchers their own class.
+    LoopsClosingBraceAlignmentChecker loopsClosingBraceAlignmentChecker = new LoopsClosingBraceAlignmentChecker();
+    CodeRegexMatcher codeRegexMatcher = new CodeRegexMatcher(); //Regex matcher method cuts down on written code. Consider making the regex matchers their own class.
+    int lineOfClosingBrace;
 
+    /**
+     *
+     * @param currentLine: Line being read.
+     * @param lineIndex: Index used to access a specific position in the progLines ArrayList
+     * @param lineNum; Line number to print out.
+     */
     public void checkForBlankLinesBetweenMethods(String currentLine, int lineIndex, int lineNum){
-        int lineOfClosingBrace;
-        if(methodIndentationChecker.methodRegexMatcher(currentLine) == true){
-            lineOfClosingBrace = methodClosingBraceAlignedLeftChecker.linePositionOfClosingBrace(lineIndex);
-            System.out.println("Closing brace of method: "+lineOfClosingBrace);
-            System.out.println("Proglines.get(lineOfClosingBrace): "+progLines.get(lineOfClosingBrace));
-            System.out.println("Line after closing brace empty? "+progLines.get(lineOfClosingBrace).isEmpty());
-            if(!progLines.get(lineOfClosingBrace).isEmpty()){
+
+        if(codeRegexMatcher.methodRegexMatcher(currentLine) == true){
+            Stack<String>braceStack = new Stack<>();
+            lineOfClosingBrace = loopsClosingBraceAlignmentChecker.lineNumOfLoopClosingBrace(currentLine,braceStack);
+            if(!progLines.get(lineOfClosingBrace).isEmpty() || !progLines.get(lineIndex-1).isEmpty()){
                 errorTrace("Line "+lineOfClosingBrace+"/"+(lineOfClosingBrace+1)+": ","No blank line between methods. \n");
             }
         }

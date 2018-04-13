@@ -1,10 +1,13 @@
 /**
- * Created by aloom on 10/6/2017.
+ * Checks that binary operators have exactly one space around them.
+ * @author : Aaron Loomis
  */
 public class SpacesAroundBinaryMathOperatorsChecker extends StyleChecker {
 
     int lineCount;
-
+    /*
+        Stores an error message if
+     */
     public void spacedBinaryOperators(String progLine,int lineIndex, int lineNum){
         this.lineCount = lineNum;
         if (progLine.contains("/*") || progLine.contains("/**") ||progLine.contains("*/") ||progLine.contains("//")){
@@ -39,9 +42,16 @@ public class SpacesAroundBinaryMathOperatorsChecker extends StyleChecker {
             if(currentChar.toString().equals("%")){
                 spacesSurroundCharacter(previousChar.toString(),"MODULUS",nextChar.toString());
             }
+            if(currentChar.toString().equals("<=")){
+                spacesSurroundCharacter(previousChar.toString(),"MODULUS",nextChar.toString());
+            }
+            if(currentChar.toString().equals(">=")){
+                spacesSurroundCharacter(previousChar.toString(),"MODULUS",nextChar.toString());
+            }
         }
     }
     public void spacesSurroundCharacter(String before, String current, String after){
+
         if (!before.equals(" ") || !after.equals(" ")){
             errorTrace("Line "+this.lineCount+": ","Missing spaces around " +current+ " operator.\n");
         }

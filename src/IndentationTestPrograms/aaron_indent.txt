@@ -7,13 +7,13 @@ No curlys contained after a single statement if statement.
 public class Test1
 {
 
-    public static void Main(String[]args)
+    public static void main(String[]args)
     {
         TestClass1 test1 = new TestClass1();
         test1.CircleOfNumbers(10,1);
     }
 
-    public int CircleOfNumbers(int n, int firstNumber)
+    public int circleofnumbers(int n, int firstNumber)
     {
         private final int NUMBER_OF_CIRCLES = 5;
         private final int NUMBER_OF_CIRCLES = 5;
@@ -22,10 +22,12 @@ public class Test1
         {
             break;
         }
+
         while(firstNumber > 6)
         {
             System.out.println(firstNumber);
         }
+
         else
         {
 			oppositeNum = firstNumber - (n / 2);

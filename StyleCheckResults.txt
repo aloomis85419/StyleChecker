@@ -1,6 +1,37 @@
 AUTHOR: AARON LOOMIS
 STYLE CHECKER Vers 1.0
 STYLE REPORT
-Report generated on: 10/09/2017 10:54:14
+Report generated on: 10/13/2017 16:16:11
 ===========================================================================
-Line 16: Method name does not consist of exclusively lowercase letters.
+Line 11: Method name does not consist of exclusively lowercase letters.
+Line 18/19: No blank line between methods. 
+
+Line 11: Spaces between method name and parameters
+Line 22: Method name does not consist of exclusively lowercase letters.
+Line 45/46: No blank line between methods. 
+
+Line 33: Missing curly bracket after IF statement.
+
+Line 34: Closing brace alignment for IF statement is incorrect.
+
+Line 35: Missing curly bracket after ELSE statement.
+
+Line 36: Closing brace alignment for ELSE statement is incorrect.
+
+Line 36: Blank line after else statement
+
+Line 39: Missing curly bracket after IF statement.
+
+Line 40: Closing brace alignment for IF statement is incorrect.
+
+Line 40: Blank line after if statement
+
+Line 43: Missing curly bracket after IF statement.
+
+Line 44: Closing brace alignment for IF statement is incorrect.
+
+Line 44: Blank line after if statement
+
+Line 48: Method name does not consist of exclusively lowercase letters.
+Line 50/51: No blank line between methods. 
+

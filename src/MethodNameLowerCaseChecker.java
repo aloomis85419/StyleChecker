@@ -1,22 +1,32 @@
 /**
- * Created by aloom on 10/9/2017.
+ * Checks that the characters of a method name are all lower case.
+ * @author : Aaron Loomis
  */
 public class MethodNameLowerCaseChecker extends StyleChecker {
 
-    MethodIndentationChecker methodIndentationChecker = new MethodIndentationChecker();
-    //the return types array is special because a return type always comes right before a method name.
+    CodeRegexMatcher codeRegexMatcher = new CodeRegexMatcher();
     String[]returnTypeTokens = {"void","int","Integer","double","Double","float","Float","long","Long","short","Short","boolean","Boolean","char","Character","byte","Byte"};
+
+
+    /*
+           Checks if all method names consist of only lowercase letters
+     */
     public void checkMethodNamesLowercase(String currentLine, int lineIndex, int lineNum){
-        if(methodIndentationChecker.methodRegexMatcher(currentLine) == true){
-            String methodName;
-            methodName = extractMethodName(currentLine);
-            if(isAllLowerCase(methodName) == false){
-                System.out.println("Is all LowerCase: "+isAllLowerCase(methodName));
-                errorTrace("Line "+lineNum+": ","Method name does not consist of exclusively lowercase letters.");
-            }
+        String methodName;
+        /*method call and class accessors checks to be added in the future.
+        if(codeRegexMatcher.methodCallRegexMatcher(currentLine)){
+            if (codeRegexMatcher.methodLowerCaseRegexMatcher(currentLine)==false)errorTrace("Line "+lineNum+": ","Method call does not consist of exclusively lowercase letters.");
+        }
+        */
+        if(codeRegexMatcher.methodRegexMatcher(currentLine) == true){
+
+            if(codeRegexMatcher.methodLowerCaseRegexMatcher(currentLine) == false)errorTrace("Line "+lineNum+": ","Method name does not consist of exclusively lowercase letters.");
         }
     }
 
+    /*
+        Scans a line and finds where the method name is located. Once found it builds the method name character by character and then returns it.
+     */
     public String extractMethodName(String progLine){
         int returnTypeStartIndex = 0;
         Character currentChar;
@@ -66,6 +76,9 @@ public class MethodNameLowerCaseChecker extends StyleChecker {
             return sB;
     }
 
+    /*
+        True if the method name is all lower case (no error stored). False if there is a single uppercase letter.
+     */
     private boolean isAllLowerCase(String methodName){
         Character c;
        for (int i = 0; i < methodName.length(); i++){

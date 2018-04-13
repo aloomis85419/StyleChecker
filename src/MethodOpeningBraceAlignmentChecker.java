@@ -1,11 +1,6 @@
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Stack;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
- * Created by aloom on 10/6/2017.
+ * Checks that the opening brace of a method is aligned correctly.
+ * @author : Aaron Loomis
  */
 public class MethodOpeningBraceAlignmentChecker extends StyleChecker{
 
@@ -18,22 +13,21 @@ public class MethodOpeningBraceAlignmentChecker extends StyleChecker{
      * @param lineIndex: Passed in from RunChecks, it allows for access of progLines;
      */
     public void methodBracesAlignedLeft(String currentLine,int lineIndex,int lineNum){
-        MethodIndentationChecker methodRegexSearcher = new MethodIndentationChecker();
+        CodeRegexMatcher methodRegexSearcher = new CodeRegexMatcher();
         int alignPosition = 0;
-        int openingBracePos = 0;
-        if (methodRegexSearcher.methodRegexMatcher(currentLine) == true) {
-                if(currentLine.contains("{")){
-                   errorTrace("Line "+(lineNum+1)+": ","Incorrect method brace alignment. Opening brace is on the same line as method declaration.\n");
+        if (methodRegexSearcher.methodRegexMatcher(currentLine) || methodRegexSearcher.constructorRegexMatcher(currentLine)) {
+            int openingBracePos = 0;
+            int indexOfNext = progLines.indexOf(currentLine)+1;
+            String nextLine = progLines.get(indexOfNext);
+            if(currentLine.contains("{")){
+                   errorTrace("Line "+(lineNum)+": ","Incorrect method brace alignment. Opening brace is on the same line as method declaration.\n");
                 }
-                if(progLines.get(lineIndex+1).isEmpty()){
-                    errorTrace("Line "+(lineNum+1)+": ","Blank lines after method declaration.\n");
+            if(nextLine.isEmpty()){
+                    errorTrace("Line " + (lineNum+1) + ": ", "Blank line after method declaration. Please fix this error before checking method brace alignment.\n");
                 }
-        }
-        if(methodRegexSearcher.methodRegexMatcher(currentLine) == true){
-            if(progLines.get(lineIndex+1).contains("{")) {
+            if(nextLine.contains("{")) {
                 openingBracePos = getMatchPosition(progLines.get(lineIndex + 1));
                 alignPosition = getAlignPosition(currentLine);
-
                 if (alignPosition != openingBracePos) {
                     errorTrace("Line " + (lineNum+1) + ": ", "Incorrect opening-method brace alignment.\n");
                 }

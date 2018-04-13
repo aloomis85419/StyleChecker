@@ -2,11 +2,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by aloom on 10/6/2017.
+ * Checks for all letters of a constant being capitalized
+ * @author : Aaron Loomis
  */
 public class ConstantAllCapsChecker extends StyleChecker{
 
     int lineNum;
+    CodeRegexMatcher codeRegexMatcher = new CodeRegexMatcher();
 
     /**
      * Looks to see if constant variables are all caps.
@@ -14,28 +16,12 @@ public class ConstantAllCapsChecker extends StyleChecker{
     public void constantsAllCaps(String progLine, int lineCount){
         String typeName;
         lineNum = lineCount;
-        if(constantRegexMatcher(progLine)){
-            typeName = progLine.substring(getEndPositionOfTypeIdentifier(progLine), progLine.length());
+        if(codeRegexMatcher.constantRegexMatcher(progLine)){
             typeName =  extractConstant(progLine);
             if(isAllCaps(typeName) == false){
                 errorTrace("Line "+lineCount+": ","Constant is not all caps or contains invalid characters. Valid characters are capital letters or '_'.\n");
             }
         }
-    }
-
-    /**
-     * Compares a line of the program to a custom regex for a constant.
-     * @param inputString;A line of the program to be matched by the constant regex.
-     * @return; True if the line matches the regular expression for a constant.
-     */
-    public boolean constantRegexMatcher(String inputString){
-        String regex = "(((final|private?|protected?|static?))\\s+(final|private?|protected?|static?))\\s+(int|boolean|char|long|byte|float|double|\\w)\\s+(\\w*)\\s*(=)\\s+(\\w*|\\d*|.)";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher patternMatcher = pattern.matcher(inputString);
-        if(patternMatcher.find()){
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -217,5 +203,4 @@ public class ConstantAllCapsChecker extends StyleChecker{
         }
         return constant;
     }
-
 }

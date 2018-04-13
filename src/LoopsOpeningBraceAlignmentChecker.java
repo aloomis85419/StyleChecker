@@ -1,60 +1,91 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
- * Created by aloom on 10/8/2017.
+ * Checks the alignment of the opening brace of a loop statement.
+ * @author : Aaron Loomis
  */
 public class LoopsOpeningBraceAlignmentChecker extends StyleChecker {
+
+    CodeRegexMatcher codeRegexMatcher = new CodeRegexMatcher();
+
+    /*
+        Checks to see if the opening brace of a loop statement is in alignment with the first character of the loop statement.
+     */
     public void checkLoopBraceAlignment(String progLine, int lineIndex, int lineNum){
-        int alignPos;
-        int bracePos;
+        int alignPos = 0;
+        int bracePos = 0;
         String decType = "";
         if(progLine.isEmpty()){
             return;
         }
-        if(progLine.contains("do(")){
-            decType = "do";
-            alignPos = getPositionOfLoopKeyword(progLine, decType);
-            bracePos = getOpeningBraceAlignmentPosition(lineIndex);
+        if(codeRegexMatcher.doRegexMatcher(progLine)){
+            decType = "DO";
+            if(progLines.get(lineIndex).contains("{")){
+                errorTrace("Line "+lineNum+": ","Opening brace on the same line as "+decType+" header.");
+                return;
+            }
+            if (progLines.get(lineIndex+1).contains("{")) {
+                alignPos = getPositionOfKeyword(progLines.get(lineIndex), decType);
+                bracePos = getOpeningBraceAlignmentPosition(progLines.get(lineIndex+1));
+            }
             if(alignPos != bracePos){
-                errorTrace("Line "+(lineNum+1)+":"," Opening brace alignment for "+decType+" statement is incorrect.\n");
+                errorTrace("Line "+lineNum+":"," Opening brace alignment for "+decType+" statement is incorrect.\n");
+                return;
             }
         }
-        if(progLine.contains("while(")){
-            decType = "while";
-            alignPos = getPositionOfLoopKeyword(progLine, decType);
-            bracePos = getOpeningBraceAlignmentPosition(lineIndex);
-            if(alignPos != bracePos){
-                errorTrace("Line "+(lineNum+1)+":"," Opening brace alignment for "+decType+" statement is incorrect.\n");
+        if(codeRegexMatcher.whileRegexMatcher(progLine)){
+            decType = "WHILE";
+            if(progLines.get(lineIndex).contains("{")){
+                errorTrace("Line "+lineNum+": ","Opening brace on the same line as "+decType+" header.");
+                return;
             }
+            if (progLines.get(lineIndex+1).contains("{")) {
+                alignPos = getPositionOfKeyword(progLines.get(lineIndex), decType);
+                bracePos = getOpeningBraceAlignmentPosition(progLines.get(lineIndex+1));
+
+            }if(alignPos != bracePos){
+                errorTrace("Line "+lineNum+":"," Opening brace alignment for "+decType+" statement is incorrect.\n");
+                return;
+            }
+
         }
-        if(progLine.contains("for(")){
-            decType = "for";
-            alignPos = getPositionOfLoopKeyword(progLine,decType);
-            bracePos = getOpeningBraceAlignmentPosition(lineIndex);
+        if(codeRegexMatcher.forRegexMatcher(progLine)){
+            decType = "FOR";
+            if(progLines.get(lineIndex).contains("{")){
+                errorTrace("Line "+lineNum+": ","Opening brace on the same line as "+decType+" header.");
+                return;
+            }
+            if (progLines.get(lineIndex+1).contains("{")) {
+                alignPos = getPositionOfKeyword(progLines.get(lineIndex), decType);
+                bracePos = getOpeningBraceAlignmentPosition(progLines.get(lineIndex+1));
+            }
             if(alignPos != bracePos){
-                errorTrace("Line "+(lineNum+1)+":"," Opening brace alignment for "+decType+" statement is incorrect.\n");
+                errorTrace("Line "+lineNum+":"," Opening brace alignment for "+decType+" statement is incorrect.\n");
+                return;
             }
         }
     }
 
-    public int getPositionOfLoopKeyword(String progLine, String decType){
-        int decPos = progLine.indexOf(decType);
-        return decPos;
+    /*
+        Returns the idnex of the first character of the keyword.
+     */
+    public int getPositionOfKeyword(String currentLine, String decType){
+        int index = 0;
+        while(currentLine.charAt(index)== ' '){
+            index++;
+        }
+        return index;
     }
 
-    public int getOpeningBraceLineNum(int lineCount){
-        int lineNum = lineCount;
-        String progLine;
-        while (!progLines.get(lineNum).contains("{")){
-            lineNum++;
-            progLine = progLines.get(lineNum);
+    public int getOpeningBraceAlignmentPosition(String progLine){
+        Character currentChar;
+        for (int i = 0; i < progLine.length(); i++){
+            currentChar = progLine.charAt(i);
+            if (currentChar == '{'){
+                return i;
+            }
         }
-        return lineNum;
-    }
-
-    public int getOpeningBraceAlignmentPosition(int lineCount){
-        int posOfBrace = 0;
-        while(progLines.get(getOpeningBraceLineNum(lineCount)).charAt(posOfBrace) != '{') {
-            posOfBrace++;
-        }
-        return  posOfBrace;
+      return 0;
     }
 }
